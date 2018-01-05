@@ -9,7 +9,7 @@ It also demonstrates using an ORACLE and/or PROBABILITY THEORY
 in testing and BOUNDARY (EDGE) TESTING.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Sydney Larson.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import random
@@ -33,7 +33,7 @@ def run_test_sum_sequence():
     print('--------------------------------------------------')
 
     # ------------------------------------------------------------------
-    # TODO: 2. READ the COMMENTS and CODE in this function,
+    # DONE: 2. READ the COMMENTS and CODE in this function,
     #  asking questions as needed.
     #
     #   When you believe that you understand:
@@ -202,6 +202,10 @@ def sum_sequence(sequence):
     Type hints:
       :type sequence: list or tuple (of integers)
     """
+    count = 0
+    for k in range(len(sequence)):
+        count = sequence[k] + count
+    return count
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
@@ -342,6 +346,23 @@ def run_test_count_items_bigger_than():
     print('  for your code (and Python\'s pseudo-random numbers).')
 
     # TO DO 4 (continued):  Add your 2 ADDITIONAL tests here:
+    # Test 9:
+    sequence = [33,42,77,65,78,445]
+    threshold = 20
+    expected = 6
+    actual = count_items_bigger_than(sequence, threshold)
+    print()
+    print('Test 9 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 10:
+    sequence = [-1233,123,345,44,56,5,67]
+    threshold = 125
+    expected = 1
+    actual = count_items_bigger_than(sequence, threshold)
+    print()
+    print('Test 10 expected:', expected)
+    print('       actual:  ', actual)
 
 
 def count_items_bigger_than(numbers, threshold):
@@ -377,6 +398,11 @@ def count_items_bigger_than(numbers, threshold):
       :type numbers:   list or tuple (of numbers)
       :type threshold: float
     """
+    count = 0
+    for k in range(len(numbers)):
+        if numbers[k] > threshold:
+            count += 1
+    return count
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -482,6 +508,14 @@ def run_test_count_positive_sines():
     print('        actual:  ', actual)
 
     # TO DO 6 (continued):  Add your 1 ADDITIONAL test here:
+    # Test 11 (using the list [0, 1, 2, ... 1066]
+    sequence.append(1066)
+
+    expected = 533
+    actual = count_positive_sines(sequence)
+    print()
+    print('Test 11 expected:', expected)
+    print('        actual:  ', actual)
 
 
 def count_positive_sines(numbers):
@@ -507,6 +541,11 @@ def count_positive_sines(numbers):
     Type hints:
       :type sequence: list or tuple (of numbers)
     """
+    count = 0
+    for k in range(len(numbers)):
+        if math.sin(numbers[k]) > 0:
+            count += 1
+    return count
     # ------------------------------------------------------------------
     # TODO: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -587,6 +626,20 @@ def run_test_sum_first_n():
 
     # TO DO 8 (continued):  Add your 2 ADDITIONAL tests here:
 
+   # Test 8:
+    expected = 29
+    actual = sum_first_n([2,5,7,15], 4)
+    print()
+    print('Test 8 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 9:
+    expected = 76
+    actual = sum_first_n([22,43,5,6,12,4], 4)
+    print()
+    print('Test 9 expected:', expected)
+    print('       actual:  ', actual)
+
 
 def sum_first_n(numbers, n):
     """
@@ -609,6 +662,10 @@ def sum_first_n(numbers, n):
       :type numbers:   list of tuple (of numbers)
       :type n: int
     """
+    count = 0
+    for k in range (n):
+        count += numbers[k]
+    return count
     # ------------------------------------------------------------------
     # TODO: 9. Implement and test this function.
     #          Tests have been written for you (above).
